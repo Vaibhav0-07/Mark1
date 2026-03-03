@@ -14,6 +14,14 @@ pnpm dev
 bun dev
 ```
 
+## To Run the Inngest Dev Server
+
+Run the cmd
+
+```bash
+    npx --ignore-scripts=false inngest-cli@latest dev
+```
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
