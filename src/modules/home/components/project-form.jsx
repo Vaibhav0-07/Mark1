@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Form, FormField } from "@/components/ui/form";
 import { Content } from "next/font/google";
+import { onInvoke } from "../actions";
 
 const formSchema = z.object({
     content:z
@@ -97,9 +98,24 @@ const ProjectsForm = () => {
         }
     }
 
+    const onInvokeAI = async() => {
+        try {
+            const res = await onInvoke()
+            console.log(res)
+            toast.success("Invoking Mark1")
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
   return (
     <div className="space-y-8">
         {/* Template grid */}
+
+        {/* For checking the API */}
+        <Button onClick={onInvokeAI}>   
+            Invoke AI agent
+        </Button>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {
                 PROJECT_TEMPLATES.map((template, index) => (
